@@ -34,9 +34,24 @@ class View {
 }
 
 class Search {
-    constructor() {
+    constructor(view) {
+        this.view = view;
+
+        this.view.searchInput.addEventListener('keyup', this.searchUsers.bind(this));
 
     }
+
+    async searchUsers() {
+        return await fetch(`https://api.github.com/search/users?q=${this.view.searchInput.value}`)
+            .then((res) => {
+                if(res.ok) {
+                    res.json().then(res=> {
+                        console.log(res);
+                    })
+                }
+            });
+    }
+
 }
 
-new Search(new View);
+new Search(new View());
