@@ -1,14 +1,14 @@
-class Search {
+class View {
     constructor() {
         this.app = document.getElementById('app');
-        
+
         this.title = this.createElement('h1', 'title');
         this.title.textContent = 'Поиск пользователей на сайте GitHub:'
 
         this.searchLine = this.createElement('div', 'search-line');
         this.searchInput = this.createElement('input', 'search-input');
         this.searchCounter = this.createElement('span', 'counter');
-        
+
         this.searchLine.append(this.searchInput);
         this.searchLine.append(this.searchCounter);
 
@@ -27,11 +27,16 @@ class Search {
 
     createElement(elementTag, elementClass) {
         const element = document.createElement(elementTag);
-        if(elementClass) {}
+        if (elementClass) { }
         element.classList.add(elementClass);
         return element;
     }
 }
 
+class Search {
+    constructor() {
 
-new Search();
+    }
+}
+
+new Search(new View);
